@@ -1,0 +1,16 @@
+{
+  "name": "hairdress-eve-back",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Newflaree/backend-node_hairdress.git",
+  "author": "Camilo López <camiloj.lopez79@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-validator": "^6.14.2",
+    "mongoose": "^6.6.5"
+  }
+}
