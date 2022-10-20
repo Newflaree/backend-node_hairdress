@@ -1,9 +1,12 @@
 const express = require( 'express' );
+const cors = require( 'cors' );
+// Database Config
+const dbConnection = require( '../db/db.config');
 
 class Server {
   constructor() {
     this.app = express();
-    this.port = '3001'
+    this.port = process.env.PORT;
     // TODO: Set paths por API
 
     // Init methods
@@ -13,20 +16,21 @@ class Server {
   }
 
   async dbConnect() {
-    throw new Error( 'dbConnect method not implemented'.red );
+    await dbConnection();
   }
 
   middlewares() {
-    throw new Error( 'Middlewares method not implemented'.red );
+    this.app.use( cors() );
   }
 
   routes() {
-    throw new Error( 'Routes method not implemented'.red );
+    //throw new Error( 'Routes method not implemented'.red );
   }
 
   listen() {
     this.app.listen( this.port, () => {
-      console.log( `${ '[SERVER.LISTEN]'.green }Listening on port ${ this.port.green }` );
+      console.clear();
+      console.log( `${ '[SERVER.LISTEN]'.green }: Listening on port ${ this.port.green }` );
     })
   }
 }
