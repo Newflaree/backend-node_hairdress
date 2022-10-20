@@ -1,14 +1,21 @@
-const { request, response } = require("express");
+const { request, response } = require( 'express' );
+// Services
+const { createUserService } = require( '../../services/auth' );
 
 /*
   PATH: '/api/auth/register'
 */
 const createUser = async ( req = request, res = response ) => {
-  try {
+  const { name, email, password } = req.body;
 
-    res.json({
+  try {
+    const { user } = await createUserService( name, email, password );
+
+    res.status( 201 ).json({
       ok: true,
-      msg: 'createUser'
+      registered: {
+        user
+      }
     });
 
   } catch ( err ) {
