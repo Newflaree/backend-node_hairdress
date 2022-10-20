@@ -1,18 +1,18 @@
 const { request, response } = require("express");
 
 /*
-  PATH: '/api/users'
+  PATH: '/api/auth/login'
 */
-const createUser = async ( req = request, res = response ) => {
+const loginUser = async ( req = request, res = response ) => {
   try {
 
     res.json({
       ok: true,
-      msg: 'createUser'
+      msg: 'loginUser'
     });
 
   } catch ( err ) {
-    console.log( `${ '[CONTROLLER.CREATE-USER]'.red }: Error Detail - ${ err }` );
+    console.log( `${ '[CONTROLLER.LOGIN-USER]'.red }: Error Detail - ${ err }` );
 
     res.status( 500 ).json({
       ok: false,
@@ -21,4 +21,4 @@ const createUser = async ( req = request, res = response ) => {
   }
 }
 
-module.exports = createUser;
+module.exports = loginUser;
