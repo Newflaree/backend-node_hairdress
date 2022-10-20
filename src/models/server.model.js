@@ -2,12 +2,16 @@ const express = require( 'express' );
 const cors = require( 'cors' );
 // Database Config
 const dbConnection = require( '../db/db.config');
+// Routes
+const { usersRouter } = require('../routes');
 
 class Server {
   constructor() {
     this.app = express();
     this.port = process.env.PORT;
-    // TODO: Set paths por API
+    this.apiPaths = {
+      users: '/api/users'
+    }
 
     // Init methods
     this.dbConnect();
@@ -21,10 +25,11 @@ class Server {
 
   middlewares() {
     this.app.use( cors() );
+    this.app.use( express.json() );
   }
 
   routes() {
-    //throw new Error( 'Routes method not implemented'.red );
+    this.app.use( this.apiPaths.users, usersRouter )
   }
 
   listen() {
