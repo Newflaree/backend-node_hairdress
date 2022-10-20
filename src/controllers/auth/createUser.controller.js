@@ -9,12 +9,13 @@ const createUser = async ( req = request, res = response ) => {
   const { name, email, password } = req.body;
 
   try {
-    const { user } = await createUserService( name, email, password );
+    const { user, token } = await createUserService( name, email, password );
 
     res.status( 201 ).json({
       ok: true,
       registered: {
-        user
+        user,
+        token
       }
     });
 
