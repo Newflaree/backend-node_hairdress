@@ -3,9 +3,6 @@ const { generateJWT } = require( '../../helpers/jwt' );
 // Models
 const { User } = require( '../../models' );
 
-/*
-  PATH: '/api/auth/login'
-*/
 const renewTokenService = async ( uid = '' ) => {
   try {
     const [ user, token ] = await Promise.all([

@@ -13,10 +13,8 @@ const createUser = async ( req = request, res = response ) => {
 
     res.status( 201 ).json({
       ok: true,
-      registered: {
-        user,
-        token
-      }
+      user,
+      token
     });
 
   } catch ( err ) {

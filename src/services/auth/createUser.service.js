@@ -4,9 +4,6 @@ const { generateJWT } = require( '../../helpers/jwt' );
 // Models
 const { User } = require( '../../models' );
 
-/*
-  DOC: Registers a new user, encrypting their password and generating a jwt to maintain it session
-*/
 const createUserService = async ( name, email, password ) => {
   try {
     const user = new User({ name, email, password });

@@ -1,14 +1,20 @@
-const { request, response } = require("express");
+const { request, response } = require( 'express' );
+// Services
+const { getUsersService } = require( '../../services/users' );
 
 /*
   PATH: '/api/users'
 */
 const getUsers = async ( req = request, res = response ) => {
+  const { from = 0, limit = 5 } = req.query;
+
   try {
+    const { total, users } = await getUsersService( from, limit );
 
     res.json({
       ok: true,
-      msg: 'getUsers'
+      total,
+      users
     });
 
   } catch ( err ) {

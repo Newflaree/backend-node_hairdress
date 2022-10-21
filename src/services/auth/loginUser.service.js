@@ -4,9 +4,6 @@ const { generateJWT } = require('../../helpers/jwt');
 // Models
 const { User } = require( '../../models' );
 
-/*
-  PATH: '/api/auth/login'
-*/
 const loginUserService = async ( email = '', password = '' ) => {
   try {
     const user = await User.findOne({ email });
