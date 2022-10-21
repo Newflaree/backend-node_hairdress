@@ -2,7 +2,7 @@ const bcrypt = require( 'bcryptjs' );
 // Helpers
 const { generateJWT } = require('../../helpers/jwt');
 // Models
-const { User } = require("../../models");
+const { User } = require( '../../models' );
 
 /*
   PATH: '/api/auth/login'
@@ -31,7 +31,7 @@ const loginUserService = async ( email = '', password = '' ) => {
     }
 
     // Generate JWT
-    const token = await generateJWT( user.uid );
+    const token = await generateJWT( user.id );
 
     // TODO: Set manu for frontend
 

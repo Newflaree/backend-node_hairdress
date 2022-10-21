@@ -1,14 +1,20 @@
-const { request, response } = require("express");
+const { request, response } = require( 'express' );
+// Services
+const {renewTokenService} = require( '../../services/auth' );
 
 /*
   PATH: '/api/auth/login'
 */
 const renewToken = async ( req = request, res = response ) => {
+  const { _id } = req.user;
+
   try {
+    const { user, token } = await renewTokenService( _id );
 
     res.json({
       ok: true,
-      msg: 'renewToken'
+      user,
+      token
     });
 
   } catch ( err ) {

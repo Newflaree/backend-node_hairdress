@@ -1,4 +1,4 @@
-const { User } = require("../../../models");
+const { User } = require( '../../../models' );
 
 const emailValidation = async ( email = '' ) => {
   const emailExists = await User.findOne({ email });

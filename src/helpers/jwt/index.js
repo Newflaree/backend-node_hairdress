@@ -1,4 +1,4 @@
-const generateJWT = require("./generateJwt.helper");
+const generateJWT = require( './generateJwt.helper' );
 
 module.exports = {
   generateJWT

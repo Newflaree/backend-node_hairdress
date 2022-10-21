@@ -9,7 +9,7 @@ const {
 // Helpers
 const { emailValidation } = require( '../helpers/db/users' );
 // Middlewares
-const { validateFields } = require( '../middlewares' );
+const { validateFields, validateJWT } = require( '../middlewares' );
 
 /*
   PATH: '/api/auth'
@@ -30,6 +30,9 @@ router.post( '/login', [
   validateFields
 ], loginUser );
 
-router.get( '/renew', renewToken );
+router.get( '/renew', [
+  validateJWT,
+  validateFields
+], renewToken );
 
 module.exports = router;

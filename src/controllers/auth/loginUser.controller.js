@@ -1,6 +1,6 @@
-const { request, response } = require("express");
+const { request, response } = require( 'express' );
 // Services
-const { loginUserService } = require("../../services/auth");
+const { loginUserService } = require( '../../services/auth' );
 
 /*
   PATH: '/api/auth/login'

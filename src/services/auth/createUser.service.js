@@ -19,7 +19,7 @@ const createUserService = async ( name, email, password ) => {
     await user.save();
 
     // Generate JWT
-    const token = await generateJWT( user.uid );
+    const token = await generateJWT( user.id );
 
     // TODO: Get manu for frontend
 

@@ -3,7 +3,7 @@ const cors = require( 'cors' );
 // Database Config
 const dbConnection = require( '../db/db.config');
 // Routes
-const { usersRouter, authRouter } = require('../routes');
+const { usersRouter, authRouter } = require( '../routes' );
 
 class Server {
   constructor() {
