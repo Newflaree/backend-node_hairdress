@@ -1,4 +1,5 @@
 const { Router } = require( 'express' );
+const { check } = require( 'express-validator' );
 // Controllers
 const {
   getUsers,
@@ -6,6 +7,8 @@ const {
   updateUserById,
   deleteUserById
 } = require('../controllers/users');
+// Helpers
+const { idValidation } = require( '../helpers/db/users' );
 // Middlewares
 const {
   validateJWT,
@@ -24,7 +27,14 @@ router.get( '/', [
   validateFields
 ], getUsers );
 
-router.get( '/:id', getUserById );
+router.get( '/:id', [
+  validateJWT,
+  validateRole,
+  check( 'id', 'Invalid Mongo Id' ).isMongoId(),
+  check( 'id' ).custom( idValidation ),
+  validateFields
+], getUserById );
+
 router.put( '/:id', updateUserById )
 router.delete( '/:id', deleteUserById )
 
