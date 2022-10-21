@@ -1,14 +1,20 @@
-const { request, response } = require("express");
+const { request, response } = require( 'express' );
+// Services
+const { updateUserByIdService } = require( '../../services/users' );
 
 /*
   PATH: '/api/users/:id'
 */
 const updateUserById = async ( req = request, res = response ) => {
+  const { id } = req.params;
+  const { _id, email, password, status, ...rest } = req.body;
+
   try {
+    const { user } = await updateUserByIdService( id, password, rest );
 
     res.json({
       ok: true,
-      msg: 'updateUserById'
+      user
     });
 
   } catch ( err ) {

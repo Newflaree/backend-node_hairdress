@@ -35,7 +35,14 @@ router.get( '/:id', [
   validateFields
 ], getUserById );
 
-router.put( '/:id', updateUserById )
-router.delete( '/:id', deleteUserById )
+router.put( '/:id', [
+  validateJWT,
+  validateRole,
+  check( 'id', 'Invalid Mongo Id' ).isMongoId(),
+  check( 'id' ).custom( idValidation ),
+  validateFields
+], updateUserById );
+
+router.delete( '/:id', deleteUserById );
 
 module.exports = router;
