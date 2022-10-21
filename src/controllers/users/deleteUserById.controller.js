@@ -1,14 +1,19 @@
-const { request, response } = require("express");
+const { request, response } = require( 'express' );
+// Services
+const { deleteUserByIdService } = require( '../../services/users' );
 
 /*
   PATH: '/api/users/:id'
 */
 const deleteUserById = async ( req = request, res = response ) => {
+  const { id } = req.params;
+
   try {
+    await deleteUserByIdService( id );
 
     res.json({
       ok: true,
-      msg: 'deleteUserById'
+      msg: 'Usuario eliminado con éxito'
     });
 
   } catch ( err ) {

@@ -2,14 +2,14 @@ const bcrypt = require( 'bcryptjs' );
 // Models
 const { User } = require( '../../models' );
 
-const updateUserByIdService = async ( id = '', password = '', rest = {} ) => {
+const updateUserByIdService = async ( uid = '', password = '', rest = {} ) => {
   try {
     if ( password ) {
       const salt = bcrypt.genSaltSync();
       rest.password = bcrypt.hashSync( password, salt );
     }
 
-    const user = await User.findByIdAndUpdate( id, rest, { new: true } );
+    const user = await User.findByIdAndUpdate( uid, rest, { new: true } );
 
     return {
       user
