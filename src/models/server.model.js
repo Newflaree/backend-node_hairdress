@@ -3,15 +3,20 @@ const cors = require( 'cors' );
 // Database Config
 const dbConnection = require( '../db/db.config');
 // Routes
-const { usersRouter, authRouter } = require( '../routes' );
+const {
+  usersRouter,
+  authRouter,
+  productCategoryRouter
+} = require( '../routes' );
 
 class Server {
   constructor() {
     this.app = express();
     this.port = process.env.PORT;
     this.apiPaths = {
-      auth: '/api/auth',
-      users: '/api/users'
+      auth:              '/api/auth',
+      productCategories: '/api/product-categories',
+      users:             '/api/users'
     }
 
     // Init methods
@@ -31,6 +36,7 @@ class Server {
 
   routes() {
     this.app.use( this.apiPaths.auth, authRouter );
+    this.app.use( this.apiPaths.productCategories, productCategoryRouter );
     this.app.use( this.apiPaths.users, usersRouter );
   }
 
