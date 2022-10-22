@@ -22,6 +22,10 @@ const {
 const router = Router();
 
 router.post( '/', [
+  validateJWT,
+  validateRole,
+  check( 'name', 'El nombre de la categoría es obligatorio' ).not().isEmpty(),
+  validateFields
 ], createProductCategory );
 
 router.get( '/', [

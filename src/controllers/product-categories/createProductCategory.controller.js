@@ -1,15 +1,20 @@
 const { request, response } = require( 'express' );
 // Services
+const { createProductCategoryService } = require( '../../services/product-categories' );
 
 /*
   PATH: '/api/productCategory'
 */
 const createProductCategory = async ( req = request, res = response ) => {
+  const name = req.body.name;
+  const { _id } = req.user;
+
   try {
+    const { productCategory } = await createProductCategoryService( name, _id );
 
     res.json({
       ok: true,
-      msg: 'createProductCategory'
+      productCategory
     });
 
   } catch ( err ) {
