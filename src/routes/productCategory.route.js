@@ -44,6 +44,11 @@ router.get( '/:id', [
 ], getProductCategoryById );
 
 router.put( '/:id', [
+  validateJWT,
+  validateRole,
+  check( 'id', 'Invalid Mongo ID' ).isMongoId(),
+  check( 'id' ).custom( productCategoryIdValidation ),
+  validateFields
 ], updateProductCategoryById );
 
 router.delete( '/:id', [
