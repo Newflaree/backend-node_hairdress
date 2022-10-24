@@ -1,15 +1,19 @@
 const { request, response } = require( 'express' );
 // Services
+const { getProductCategoryByIdService } = require( '../../services/product-categories' );
 
 /*
   PATH: '/api/productCategory/:id'
 */
 const getProductCategoryById = async ( req = request, res = response ) => {
+  const { id } = req.params;
+
   try {
+    const { productCategory } = await getProductCategoryByIdService( id );
 
     res.json({
       ok: true,
-      msg: 'getProductCategoryById'
+      productCategory
     });
 
   } catch ( err ) {

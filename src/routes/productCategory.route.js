@@ -9,6 +9,7 @@ const {
   updateProductCategoryById
 } = require( '../controllers/product-categories' );
 // Helpers
+const { productCategoryIdValidation } = require( '../helpers/db/product-categories' );
 // Middlewares
 const {
   validateJWT,
@@ -29,9 +30,17 @@ router.post( '/', [
 ], createProductCategory );
 
 router.get( '/', [
+  validateJWT,
+  validateRole,
+  validateFields
 ], getProductCategories );
 
 router.get( '/:id', [
+  validateJWT,
+  validateRole,
+  check( 'id', 'Invalid Mongo ID' ).isMongoId(),
+  check( 'id' ).custom( productCategoryIdValidation ),
+  validateFields
 ], getProductCategoryById );
 
 router.put( '/:id', [

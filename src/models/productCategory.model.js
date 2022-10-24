@@ -18,6 +18,7 @@ const ProductCategorySchema = Schema({
 
 ProductCategorySchema.methods.toJSON = function() {
   const { __v, _id, ...productCategory } = this.toObject();
+  productCategory.id = _id;
   return productCategory;
 }
 
