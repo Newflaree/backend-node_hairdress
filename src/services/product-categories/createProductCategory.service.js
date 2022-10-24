@@ -21,4 +21,3 @@ const createProductCategoryService = async ( name = '', uid = '' ) => {
 }
 
 module.exports = createProductCategoryService;
-
