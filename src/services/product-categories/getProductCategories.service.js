@@ -17,7 +17,7 @@ const getProductCategoriesService = async ( query, from, limit ) => {
     }
 
   } catch ( err ) {
-    console.log( `${ '[SERVICE.CREATE-PRODUCT-CATEGORY]'.red }: Error Detail - ${ err }` );
+    console.log( `${ '[SERVICE.GET-PRODUCT-CATEGORIES]'.red }: Error Detail - ${ err }` );
   }}
 
 module.exports = getProductCategoriesService;

@@ -4,9 +4,10 @@ const cors = require( 'cors' );
 const dbConnection = require( '../db/db.config');
 // Routes
 const {
-  usersRouter,
   authRouter,
-  productCategoryRouter
+  productBrandsRouter,
+  productCategoryRouter,
+  usersRouter
 } = require( '../routes' );
 
 class Server {
@@ -15,6 +16,7 @@ class Server {
     this.port = process.env.PORT;
     this.apiPaths = {
       auth:              '/api/auth',
+      productBrands:     '/api/product-brands',
       productCategories: '/api/product-categories',
       users:             '/api/users'
     }
@@ -36,6 +38,7 @@ class Server {
 
   routes() {
     this.app.use( this.apiPaths.auth, authRouter );
+    this.app.use( this.apiPaths.productBrands, productBrandsRouter );
     this.app.use( this.apiPaths.productCategories, productCategoryRouter );
     this.app.use( this.apiPaths.users, usersRouter );
   }

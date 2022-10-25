@@ -2,14 +2,14 @@ const { Router } = require( 'express' );
 const { check } = require( 'express-validator' );
 // Controllers
 const {
-  createProductCategory,
-  deleteProductCategoryById,
-  getProductCategories,
-  getProductCategoryById,
-  updateProductCategoryById
-} = require( '../controllers/product-categories' );
+  createProductBrand,
+  deleteProductBrandById,
+  getProductBrandById,
+  getProductBrands,
+  updateProductBrandById,
+} = require( '../controllers/product-brands' );
 // Helpers
-const { productCategoryIdValidation } = require( '../helpers/db/product-categories' );
+const { productBrandIdValidation } = require( '../helpers/db/product-brands' );
 // Middlewares
 const {
   validateJWT,
@@ -18,7 +18,7 @@ const {
 } = require( '../middlewares' );
 
 /*
-  PATH: '/api/productCategory'
+  PATH: '/api/productBrands
 */
 const router = Router();
 
@@ -27,37 +27,37 @@ router.post( '/', [
   validateRole,
   check( 'name', 'El nombre de la categoría es obligatorio' ).not().isEmpty(),
   validateFields
-], createProductCategory );
+], createProductBrand );
 
 router.get( '/', [
   validateJWT,
   validateRole,
   validateFields
-], getProductCategories );
+], getProductBrands );
 
 router.get( '/:id', [
   validateJWT,
   validateRole,
   check( 'id', 'Invalid Mongo ID' ).isMongoId(),
-  check( 'id' ).custom( productCategoryIdValidation ),
+  check( 'id' ).custom( productBrandIdValidation ),
   validateFields
-], getProductCategoryById );
+], getProductBrandById );
 
 router.put( '/:id', [
   validateJWT,
   validateRole,
   check( 'name', 'El nombre de la categoría es obligatorio' ).not().isEmpty(),
   check( 'id', 'Invalid Mongo ID' ).isMongoId(),
-  check( 'id' ).custom( productCategoryIdValidation ),
+  check( 'id' ).custom( productBrandIdValidation ),
   validateFields
-], updateProductCategoryById );
+], updateProductBrandById );
 
 router.delete( '/:id', [
   validateJWT,
   validateRole,
   check( 'id', 'Invalid Mongo ID' ).isMongoId(),
-  check( 'id' ).custom( productCategoryIdValidation ),
+  check( 'id' ).custom( productBrandIdValidation ),
   validateFields
-], deleteProductCategoryById );
+], deleteProductBrandById );
 
 module.exports = router;

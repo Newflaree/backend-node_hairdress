@@ -1,6 +1,6 @@
 const { request, response } = require( 'express' );
-const {deleteProductCategoryByIdService} = require('../../services/product-categories');
 // Services
+const { deleteProductCategoryByIdService } = require( '../../services/product-categories' );
 
 /*
   PATH: '/api/productCategory/:id'

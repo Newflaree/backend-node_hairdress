@@ -16,7 +16,7 @@ const updateProductCategoryByIdService = async ( uid = '', id = '', data = {} ) 
     };
 
   } catch ( err ) {
-    console.log( `${ '[SERVICE.CREATE-PRODUCT-CATEGORY]'.red }: Error Detail - ${ err }` );
+    console.log( `${ '[SERVICE.UPDATE-PRODUCT-CATEGORY-BY-ID]'.red }: Error Detail - ${ err }` );
   }}
 
 module.exports = updateProductCategoryByIdService;
