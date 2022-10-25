@@ -52,6 +52,11 @@ router.put( '/:id', [
 ], updateProductCategoryById );
 
 router.delete( '/:id', [
+  validateJWT,
+  validateRole,
+  check( 'id', 'Invalid Mongo ID' ).isMongoId(),
+  check( 'id' ).custom( productCategoryIdValidation ),
+  validateFields
 ], deleteProductCategoryById );
 
 module.exports = router;

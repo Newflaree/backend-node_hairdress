@@ -7,7 +7,7 @@ const { getProductCategoriesService } = require( '../../services/product-categor
 */
 const getProductCategories = async ( req = request, res = response ) => {
   const { limit = 5, from = 0 } = req.query;
-  const query = { status: true };
+  const query = { isActive: true };
 
   try {
     const { total, productCategories } = await getProductCategoriesService( query, from, limit );

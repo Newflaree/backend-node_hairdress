@@ -1,15 +1,19 @@
 const { request, response } = require( 'express' );
+const {deleteProductCategoryByIdService} = require('../../services/product-categories');
 // Services
 
 /*
   PATH: '/api/productCategory/:id'
 */
 const deleteProductCategoryById = async ( req = request, res = response ) => {
+  const { id } = req.params;
   try {
 
-    res.json({
-      ok: true,
-      msg: 'deleteProductCategoryById'
+    const { msg, ok, statusCode } = await deleteProductCategoryByIdService( id );
+
+    res.status( statusCode ).json({
+      ok,
+      msg
     });
 
   } catch ( err ) {
