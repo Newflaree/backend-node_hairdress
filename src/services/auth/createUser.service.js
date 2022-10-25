@@ -4,7 +4,7 @@ const { generateJWT } = require( '../../helpers/jwt' );
 // Models
 const { User } = require( '../../models' );
 
-const createUserService = async ( name, email, password ) => {
+const createUserService = async ( name = '', email = '', password = '' ) => {
   try {
     const user = new User({ name, email, password });
 

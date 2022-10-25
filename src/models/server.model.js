@@ -7,6 +7,7 @@ const {
   authRouter,
   productBrandsRouter,
   productCategoryRouter,
+  productsRouter,
   usersRouter
 } = require( '../routes' );
 
@@ -18,6 +19,7 @@ class Server {
       auth:              '/api/auth',
       productBrands:     '/api/product-brands',
       productCategories: '/api/product-categories',
+      products:          '/api/products',
       users:             '/api/users'
     }
 
@@ -40,6 +42,7 @@ class Server {
     this.app.use( this.apiPaths.auth, authRouter );
     this.app.use( this.apiPaths.productBrands, productBrandsRouter );
     this.app.use( this.apiPaths.productCategories, productCategoryRouter );
+    this.app.use( this.apiPaths.products, productsRouter );
     this.app.use( this.apiPaths.users, usersRouter );
   }
 

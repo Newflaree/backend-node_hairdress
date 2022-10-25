@@ -14,7 +14,7 @@ const updateProductBrandById = async ( req = request, res = response ) => {
 
     res.json({
       ok: true,
-      msg: ''
+      msg: 'updateProductBrandById'
     });
 
   } catch ( err ) {

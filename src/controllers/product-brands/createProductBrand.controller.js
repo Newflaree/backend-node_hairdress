@@ -1,5 +1,6 @@
 const { request, response } = require( 'express' );
 // Services
+const { createProductBrandService } = require( '../../services/product-brands' );
 
 /*
   PATH: '/api/productBrands'
