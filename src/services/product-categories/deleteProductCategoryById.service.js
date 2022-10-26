@@ -9,7 +9,7 @@ const deleteProductCategoryByIdService = async ( id = '' ) => {
       return {
         ok: false,
         statusCode: 400,
-        msg: 'No existe un producto con ese id'
+        msg: 'No existe una categoría con ese ID'
       }
     }
 

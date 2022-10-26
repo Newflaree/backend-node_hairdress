@@ -2,6 +2,7 @@
 const { User } = require( '../../models' );
 
 const deleteUserByIdService = async ( uid = '' ) => {
+  // TODO: Add uid to old user. In this case, if inset the same email to future, It will not exist and will be created correctly.
   try {
     await User.findByIdAndDelete( uid );
 
