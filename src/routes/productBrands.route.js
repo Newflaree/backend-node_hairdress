@@ -25,7 +25,7 @@ const router = Router();
 router.post( '/', [
   validateJWT,
   validateRole,
-  check( 'name', 'El nombre de la categoría es obligatorio' ).not().isEmpty(),
+  check( 'name', 'El nombre de la marca es obligatorio' ).not().isEmpty(),
   validateFields
 ], createProductBrand );
 
@@ -46,7 +46,7 @@ router.get( '/:id', [
 router.put( '/:id', [
   validateJWT,
   validateRole,
-  check( 'name', 'El nombre de la categoría es obligatorio' ).not().isEmpty(),
+  check( 'name', 'El nombre de la marca es obligatorio' ).not().isEmpty(),
   check( 'id', 'Invalid Mongo ID' ).isMongoId(),
   check( 'id' ).custom( productBrandIdValidation ),
   validateFields

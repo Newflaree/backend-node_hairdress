@@ -10,10 +10,12 @@ const getProductBrands = async ( req = request, res = response ) => {
   const query = { isActive: true };
 
   try {
+    const { total, productBrands } = await  getProductBrandsService( query, from, limit );
 
     res.json({
       ok: true,
-      msg: 'getProductBrands'
+      total,
+      productBrands
     });
 
   } catch ( err ) {
@@ -27,4 +29,3 @@ const getProductBrands = async ( req = request, res = response ) => {
 }
 
 module.exports = getProductBrands;
-
