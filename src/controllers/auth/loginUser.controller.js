@@ -12,6 +12,7 @@ const loginUser = async ( req = request, res = response ) => {
     const {
       user,
       token,
+      menu,
       statusCode,
       ok,
       msg
@@ -27,7 +28,8 @@ const loginUser = async ( req = request, res = response ) => {
     res.json({
       ok: true,
       user,
-      token
+      token,
+      menu
     });
 
   } catch ( err ) {

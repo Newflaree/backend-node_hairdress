@@ -9,7 +9,6 @@ const createProduct = async ( req = request, res = response ) => {
   const productData = req.body;
   const { _id: uid } = req.user;
 
-
   try {
     const { productCreated } = await createProductService( uid, productData );
 

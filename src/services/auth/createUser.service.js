@@ -1,6 +1,7 @@
 const bcrypt = require( 'bcryptjs' );
 // Helpers
 const { generateJWT } = require( '../../helpers/jwt' );
+const { getMenuFront } = require( '../../helpers/menu-front' );
 // Models
 const { User } = require( '../../models' );
 
@@ -19,10 +20,12 @@ const createUserService = async ( name = '', email = '', password = '' ) => {
     const token = await generateJWT( user.id );
 
     // TODO: Get manu for frontend
+    const menu = getMenuFront( user.role );
 
     return {
       user,
-      token
+      token,
+      menu
     };
 
   } catch ( err ) {

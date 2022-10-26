@@ -1,6 +1,7 @@
 const bcrypt = require( 'bcryptjs' );
 // Helpers
 const { generateJWT } = require('../../helpers/jwt');
+const { getMenuFront } = require( '../../helpers/menu-front' );
 // Models
 const { User } = require( '../../models' );
 
@@ -30,11 +31,13 @@ const loginUserService = async ( email = '', password = '' ) => {
     // Generate JWT
     const token = await generateJWT( user.id );
 
-    // TODO: Set manu for frontend
+    // Set manu for frontend
+    const menu = getMenuFront( user.role );
 
     return {
       user,
-      token
+      token,
+      menu
     }
 
   } catch ( err ) {
@@ -43,4 +46,3 @@ const loginUserService = async ( email = '', password = '' ) => {
 }
 
 module.exports = loginUserService;
-

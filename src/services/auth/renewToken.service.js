@@ -1,5 +1,6 @@
 // Helpers
 const { generateJWT } = require( '../../helpers/jwt' );
+const {getMenuFront} = require('../../helpers/menu-front');
 // Models
 const { User } = require( '../../models' );
 
@@ -11,10 +12,12 @@ const renewTokenService = async ( uid = '' ) => {
     ]);
 
     // TODO: Set menu for frontend
+    const menu = getMenuFront( user.role );
 
     return {
       user,
-      token
+      token,
+      menu
     }
 
   } catch ( err ) {

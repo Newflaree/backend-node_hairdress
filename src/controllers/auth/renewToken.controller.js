@@ -9,12 +9,13 @@ const renewToken = async ( req = request, res = response ) => {
   const { _id } = req.user;
 
   try {
-    const { user, token } = await renewTokenService( _id );
+    const { user, token, menu } = await renewTokenService( _id );
 
     res.json({
       ok: true,
       user,
-      token
+      token,
+      menu
     });
 
   } catch ( err ) {

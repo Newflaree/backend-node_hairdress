@@ -38,7 +38,8 @@ router.post( '/', [
 ], createProduct );
 
 router.get( '/', [
-  validateJWT
+  validateJWT,
+  validateFields
 ], getProducts );
 
 router.get( '/:id', [
