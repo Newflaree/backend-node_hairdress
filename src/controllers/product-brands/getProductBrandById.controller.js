@@ -9,10 +9,11 @@ const getProductBrandById = async ( req = request, res = response ) => {
   const { id } = req.params;
 
   try {
+    const { productBrand } = await getProductBrandByIdService( id );
 
     res.json({
       ok: true,
-      msg: 'getProductBrandById'
+      productBrand
     });
 
   } catch ( err ) {
