@@ -6,12 +6,16 @@ const { createProductService } = require( '../../services/products' );
   PATH: '/api/products'
 */
 const createProduct = async ( req = request, res = response ) => {
+  const productData = req.body;
+  const { _id: uid } = req.user;
+
 
   try {
+    const { productCreated } = await createProductService( uid, productData );
 
     res.json({
       ok: true,
-      msg: 'createProduct'
+      productCreated
     });
 
   } catch ( err ) {
