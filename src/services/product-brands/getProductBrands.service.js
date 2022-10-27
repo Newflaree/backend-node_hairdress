@@ -18,6 +18,7 @@ const getProductBrandsService = async ( query, from, limit ) => {
 
   } catch ( err ) {
     console.log( `${ '[SERVICE.GET-PRODUCT-BRANDS]'.red }: Error Detail - ${ err }` );
-  }}
+  }
+}
 
 module.exports = getProductBrandsService;

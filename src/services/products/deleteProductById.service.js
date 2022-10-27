@@ -11,6 +11,7 @@ const deleteProductByIdService = async ( id = '' ) => {
 
   } catch ( err ) {
     console.log( `${ '[SERVICE.DELETE-PRODUCT-BY-ID]'.red }: Error Detail - ${ err }` );
-  }}
+  }
+}
 
 module.exports = deleteProductByIdService;

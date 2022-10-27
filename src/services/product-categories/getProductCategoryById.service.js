@@ -12,6 +12,7 @@ const getProductCategoryByIdService = async ( id = '' ) => {
 
   } catch ( err ) {
     console.log( `${ '[SERVICE.GET-PRODUCT-CATEGORY-BY-ID]'.red }: Error Detail - ${ err }` );
-  }}
+  }
+}
 
 module.exports = getProductCategoryByIdService;

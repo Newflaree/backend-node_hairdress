@@ -3,7 +3,7 @@ const { request, response } = require( 'express' );
 const { deleteProductCategoryByIdService } = require( '../../services/product-categories' );
 
 /*
-  PATH: '/api/productCategory/:id'
+  PATH: '/api/product-category/:id'
 */
 const deleteProductCategoryById = async ( req = request, res = response ) => {
   const { id } = req.params;

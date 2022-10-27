@@ -3,7 +3,7 @@ const { request, response } = require( 'express' );
 const { getProductBrandByIdService } = require( '../../services/product-brands' );
 
 /*
-  PATH: '/api/productBrands/:id'
+  PATH: '/api/product-brands/:id'
 */
 const getProductBrandById = async ( req = request, res = response ) => {
   const { id } = req.params;

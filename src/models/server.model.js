@@ -5,6 +5,8 @@ const dbConnection = require( '../db/db.config');
 // Routes
 const {
   authRouter,
+  ourServicesCategoriesRouter,
+  ourServicesRouter,
   productBrandsRouter,
   productCategoryRouter,
   productsRouter,
@@ -16,11 +18,13 @@ class Server {
     this.app = express();
     this.port = process.env.PORT;
     this.apiPaths = {
-      auth:              '/api/auth',
-      productBrands:     '/api/product-brands',
-      productCategories: '/api/product-categories',
-      products:          '/api/products',
-      users:             '/api/users'
+      auth:                  '/api/auth',
+      ourServices:           '/api/our-services',
+      outServicesCategories: '/api/our-services-categories',
+      productBrands:         '/api/product-brands',
+      productCategories:     '/api/product-categories',
+      products:              '/api/products',
+      users:                 '/api/users'
     }
 
     // Init methods
@@ -40,6 +44,8 @@ class Server {
 
   routes() {
     this.app.use( this.apiPaths.auth, authRouter );
+    this.app.use( this.apiPaths.ourServices, ourServicesRouter );
+    this.app.use( this.apiPaths.outServicesCategories, ourServicesCategoriesRouter );
     this.app.use( this.apiPaths.productBrands, productBrandsRouter );
     this.app.use( this.apiPaths.productCategories, productCategoryRouter );
     this.app.use( this.apiPaths.products, productsRouter );

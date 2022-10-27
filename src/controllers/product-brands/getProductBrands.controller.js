@@ -3,7 +3,7 @@ const { request, response } = require( 'express' );
 const { getProductBrandsService } = require( '../../services/product-brands' );
 
 /*
-  PATH: '/api/productBrands'
+  PATH: '/api/product-brands'
 */
 const getProductBrands = async ( req = request, res = response ) => {
   const { limit = 5, from = 0 } = req.query;

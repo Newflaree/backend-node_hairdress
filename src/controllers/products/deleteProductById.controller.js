@@ -2,7 +2,6 @@ const { request, response } = require( 'express' );
 // Services
 const { deleteProductByIdService } = require( '../../services/products' );
 
-deleteProductByIdService
 /*
   PATH: '/api/products/:id'
 */

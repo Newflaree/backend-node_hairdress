@@ -18,7 +18,7 @@ const {
 } = require( '../middlewares' );
 
 /*
-  PATH: '/api/productCategory'
+  PATH: '/api/product-categories'
 */
 const router = Router();
 

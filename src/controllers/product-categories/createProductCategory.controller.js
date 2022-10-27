@@ -3,7 +3,7 @@ const { request, response } = require( 'express' );
 const { createProductCategoryService } = require( '../../services/product-categories' );
 
 /*
-  PATH: '/api/productCategory'
+  PATH: '/api/product-category'
 */
 const createProductCategory = async ( req = request, res = response ) => {
   const name = req.body.name;

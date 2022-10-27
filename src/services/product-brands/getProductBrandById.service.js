@@ -11,6 +11,7 @@ const getProductBrandByIdService = async ( id = '' ) => {
 
   } catch ( err ) {
     console.log( `${ '[SERVICE.GET-PRODUCT-BRAND-BY-ID]'.red }: Error Detail - ${ err }` );
-  }}
+  }
+}
 
 module.exports = getProductBrandByIdService;

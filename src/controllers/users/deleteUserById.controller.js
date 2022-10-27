@@ -7,7 +7,6 @@ const { deleteUserByIdService } = require( '../../services/users' );
 */
 const deleteUserById = async ( req = request, res = response ) => {
   const { id } = req.params;
-  // TODO: Add uid to old user. In this case, if inset the same email to future, It will not exist and will be created correctly.
 
   try {
     await deleteUserByIdService( id );

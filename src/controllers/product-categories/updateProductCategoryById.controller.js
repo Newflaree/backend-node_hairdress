@@ -3,7 +3,7 @@ const { request, response } = require( 'express' );
 const { updateProductCategoryByIdService } = require( '../../services/product-categories' );
 
 /*
-  PATH: '/api/productCategory/:id'
+  PATH: '/api/product-category/:id'
 */
 const updateProductCategoryById = async ( req = request, res = response ) => {
   const { _id: uid } = req.user;

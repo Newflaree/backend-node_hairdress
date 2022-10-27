@@ -17,6 +17,7 @@ const getProductsService = async ( query = {}, from = 0, limit = 0 ) => {
 
   } catch ( err ) {
     console.log( `${ '[SERVICE.GET-PRODUCTS]'.red }: Error Detail - ${ err }` );
-  }}
+  }
+}
 
 module.exports = getProductsService;

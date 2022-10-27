@@ -21,6 +21,7 @@ const updateProductByIdService = async ( uid = '', id = '', productData = {} ) =
 
   } catch ( err ) {
     console.log( `${ '[SERVICE.UPDATE-PRODUCT-BY-ID]'.red }: Error Detail - ${ err }` );
-  }}
+  }
+}
 
 module.exports = updateProductByIdService;

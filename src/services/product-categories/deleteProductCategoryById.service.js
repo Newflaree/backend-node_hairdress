@@ -21,6 +21,7 @@ const deleteProductCategoryByIdService = async ( id = '' ) => {
 
   } catch ( err ) {
     console.log( `${ '[SERVICE.DELETE-PRODUCT-CATEGORY-BY-ID]'.red }: Error Detail - ${ err }` );
-  }}
+  }
+}
 
 module.exports = deleteProductCategoryByIdService;
