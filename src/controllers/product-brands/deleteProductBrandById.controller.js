@@ -9,11 +9,10 @@ const deleteProductBrandById = async ( req = request, res = response ) => {
   const { id } = req.params;
 
   try {
-    const { ok, statusCode, msg } = await deleteProductBrandByIdService( id );
+    const { msg } = await deleteProductBrandByIdService( id );
 
-
-    res.status( statusCode ).json({
-      ok,
+    res.json({
+      ok: true,
       msg
     });
 

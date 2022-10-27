@@ -9,9 +9,11 @@ const {
   updateProductById
 } = require( '../controllers/products' );
 // Helpers
-const { productBrandIdValidation } = require( '../helpers/db/product-brands' );
-const { productCategoryIdValidation } = require( '../helpers/db/product-categories' );
-const { productIdValidation } = require( '../helpers/db/products' );
+const {
+  productBrandIdValidation,
+  productCategoryIdValidation,
+  productIdValidation
+} = require( '../helpers/db' );
 // Middlewares
 const {
   validateJWT,
@@ -69,6 +71,8 @@ router.put( '/:id', [
 router.delete( '/:id', [
   validateJWT,
   validateRole,
+  check( 'id', 'Invalid Mongo ID' ).isMongoId(),
+  check( 'id' ). custom( productIdValidation ),
   validateFields
 ], deleteProductById );
 

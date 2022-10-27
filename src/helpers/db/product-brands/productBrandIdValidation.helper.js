@@ -3,7 +3,7 @@ const { ProductBrand } = require( '../../../models' );
 const productBrandIdValidation = async ( id = '' ) => {
   const productBrandExists = await ProductBrand.findById( id );
 
-  if ( !productBrandExists ) {
+  if ( !productBrandExists || !productBrandExists.isActive ) {
     throw new Error( 'There is no product brand with that id' );
   }
 

@@ -1,6 +1,6 @@
 const { request, response } = require( 'express' );
-const {deleteProductByIdService} = require('../../services/products');
 // Services
+const { deleteProductByIdService } = require( '../../services/products' );
 
 deleteProductByIdService
 /*
@@ -10,11 +10,11 @@ const deleteProductById = async ( req = request, res = response ) => {
   const { id } = req.params;
 
   try {
-
+    const { msg } = await deleteProductByIdService( id );
 
     res.json({
       ok: true,
-      msg: 'deleteProductById'
+      msg
     });
 
   } catch ( err ) {

@@ -3,19 +3,9 @@ const { ProductBrand } = require( '../../models' );
 
 const deleteProductBrandByIdService = async ( id = '' ) => {
   try {
-    const productBrandDeleted = await ProductBrand.findByIdAndUpdate( id, { isActive: false } );
-
-    if ( !productBrandDeleted.isActive ) {
-      return {
-        ok: false,
-        statusCode: 400,
-        msg: 'No existe una marca con ese ID'
-      }
-    }
+    await ProductBrand.findByIdAndUpdate( id, { isActive: false } );
 
     return {
-      ok: true,
-      statusCode: 200,
       msg: 'Marca eliminada con éxito'
     }
 
