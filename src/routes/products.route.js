@@ -11,6 +11,7 @@ const {
 // Helpers
 const { productBrandIdValidation } = require( '../helpers/db/product-brands' );
 const { productCategoryIdValidation } = require( '../helpers/db/product-categories' );
+const { productIdValidation } = require( '../helpers/db/products' );
 // Middlewares
 const {
   validateJWT,
@@ -43,15 +44,22 @@ router.get( '/', [
 ], getProducts );
 
 router.get( '/:id', [
-  validateJWT
+  validateJWT,
+  check( 'id', 'Invalid Mongo ID' ).isMongoId(),
+  check( 'id' ). custom( productIdValidation ),
+  validateFields
 ], getProductById );
 
 router.put( '/:id', [
-  validateJWT
+  validateJWT,
+  validateRole,
+  validateFields
 ], updateProductById );
 
 router.delete( '/:id', [
-  validateJWT
+  validateJWT,
+  validateRole,
+  validateFields
 ], deleteProductById );
 
 module.exports = router;

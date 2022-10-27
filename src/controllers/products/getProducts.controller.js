@@ -1,5 +1,6 @@
 const { request, response } = require( 'express' );
 // Services
+const { getProductsService } = require( '../../services/products' );
 
 /*
   PATH: '/api/products'
@@ -9,10 +10,12 @@ const getProducts = async ( req = request, res = response ) => {
   const query = { isActive: true };
 
   try {
+    const { total, products } = await getProductsService( query, from, limit );
 
     res.json({
       ok: true,
-      msg: 'getProducts'
+      total,
+      products
     });
 
   } catch ( err ) {

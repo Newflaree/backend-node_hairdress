@@ -27,11 +27,28 @@ const getMenuFront = ( role = 'USER_ROLE' ) => {
       title: 'Mantenimiento', 
       url: '', 
       submenu: [
-        { title: 'test-1', url: '' },
-        { title: 'test-2', url: '' },
-        { title: 'test-3', url: '' },
-        { title: 'test-4', url: '' },
-        { title: 'test-5', url: '' },
+        { title: 'Reservas', url: '' },
+        { title: 'Inicio', url: '' },
+        /*
+         * Config SlideShow,
+         * Edit About us,
+         * Show 4 Featured Products
+         * Show 6 images on Images Gallery
+        * */
+        { title: 'Productos', url: '' },
+        /*
+         * Product Categories Maintenance
+         * Product Brands Maintenance
+         * Products Maintenance
+         * TODO: Send email when added a new product. Ask before it
+         * TODO: Last sells timeline
+        * */
+        { title: 'Servicios', url: '' },
+        /*
+         * Services Categories Maintenance
+         * Services Maintenance
+        * */
+        { title: 'Contacto', url: '' },
       ]
     });
   }
