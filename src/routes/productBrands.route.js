@@ -46,9 +46,9 @@ router.get( '/:id', [
 router.put( '/:id', [
   validateJWT,
   validateRole,
-  check( 'name', 'El nombre de la marca es obligatorio' ).not().isEmpty(),
   check( 'id', 'Invalid Mongo ID' ).isMongoId(),
   check( 'id' ).custom( productBrandIdValidation ),
+  check( 'name', 'El nombre de la marca es obligatorio' ).not().isEmpty(),
   validateFields
 ], updateProductBrandById );
 

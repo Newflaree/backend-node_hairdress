@@ -1,5 +1,6 @@
 const { request, response } = require( 'express' );
 // Services
+const { updateProductByIdService } = require( '../../services/products' );
 
 /*
   PATH: '/api/products/:id'
@@ -7,13 +8,14 @@ const { request, response } = require( 'express' );
 const updateProductById = async ( req = request, res = response ) => {
   const { _id: uid } = req.user;
   const { id } = req.params;
-  const { _id, isActive, ...data } = req.body;
+  const { _id, isActive, ...productData } = req.body;
 
   try {
+    const { productUpdated } = await updateProductByIdService( uid, id, productData );
 
     res.json({
       ok: true,
-      msg: 'updateProductById'
+      productUpdated
     });
 
   } catch ( err ) {
