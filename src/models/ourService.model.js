@@ -32,7 +32,7 @@ const OurServiceSchema = Schema({
 OurServiceSchema.methods.toJSON = function() {
   const { __v, _id, ...ourService } = this.toObject();
   ourService.id = _id;
-  return productCategory;
+  return ourService;
 }
 
 module.exports = model( 'OurService', OurServiceSchema );

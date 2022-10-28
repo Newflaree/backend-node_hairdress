@@ -9,7 +9,6 @@ const createOurServicesCategoryService = async ( name = '', uid = '' ) => {
 
   try {
     const ourServicesCategoryCreated = new OurServicesCategory( ourServicesCategoryData );
-
     await ourServicesCategoryCreated.save();
     
     return {

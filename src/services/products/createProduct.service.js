@@ -1,5 +1,5 @@
 // Helpers
-const { priceFormater, stockValidator } = require( '../../helpers/db/products' );
+const { stockValidator, priceFormater } = require( '../../helpers/db' );
 // Models
 const { Product } = require( '../../models' );
 
@@ -13,8 +13,6 @@ const createProductService = async ( uid = '', productData = {} ) => {
 
   try {
     const productCreated = new Product( formatedData );
-
-    // Save to DB
     await productCreated.save();
 
     return {

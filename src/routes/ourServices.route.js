@@ -9,6 +9,7 @@ const {
   updateOurServiceById
 } = require( '../controllers/our-services' );
 // Helpers
+const { ourServicesCategoryIdVatidation } = require( '../helpers/db/our-services-categories' );
 // Middlewares
 const {
   validateJWT,
@@ -24,6 +25,11 @@ const router = Router();
 router.post( '/', [
   validateJWT,
   validateRole,
+  check( 'name', 'Indique el nombre del servicio' ).not().isEmpty(),
+  check( 'duration', 'Indique la duración del servicio' ).not().isEmpty(),
+  check( 'price', 'Indique el precio del servicio' ).not().isEmpty(),
+  check( 'category', 'Indique la categoría del servicio' ).isMongoId(),
+  check( 'category' ).custom( ourServicesCategoryIdVatidation ),
   validateFields
 ], createOurService );
 
