@@ -10,10 +10,12 @@ const getOurServicesCategories = async ( req = request, res = response ) => {
   const query = { isActive: true };
 
   try {
+    const { total, ourServicesCategories } = await getOurServicesCategoriesService( query, from, limit );
 
     res.json({
       ok: true,
-      msg: 'getOurServicesCategories'
+      total,
+      ourServicesCategories
     });
 
   } catch ( err ) {
