@@ -1,4 +1,5 @@
 // Models
+const { OurService } = require( '../../models' );
 
 const getOurServiceByIdService = async ( id = '' ) => {
   try {

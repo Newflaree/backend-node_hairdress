@@ -1,4 +1,5 @@
 // Models
+const { OurServicesCategory } = require( '../../models' );
 
 const createOurServicesCategoryService = async ( name = '', uid = '' ) => {
   try {

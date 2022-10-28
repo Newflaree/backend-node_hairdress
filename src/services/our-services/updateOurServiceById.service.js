@@ -1,5 +1,6 @@
 // Helpers
 // Models
+const { OurService } = require( '../../models' );
 
 const updateOurServiceByIdService = async ( uid = '', id = '', productData = {} ) => {
   try {

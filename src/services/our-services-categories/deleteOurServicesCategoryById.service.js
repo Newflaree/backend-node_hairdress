@@ -1,5 +1,5 @@
 // Models
-const { ProductCategory } = require( '../../models' );
+const { OurServicesCategory } = require( '../../models' );
 
 const deleteOurServicesCategoryByIdService = async ( id = '' ) => {
   try {

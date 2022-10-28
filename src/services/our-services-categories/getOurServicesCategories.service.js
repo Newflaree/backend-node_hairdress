@@ -1,5 +1,5 @@
 // Models
-const { ProductCategory } = require( '../../models' );
+const { OurServicesCategory } = require( '../../models' );
 
 const getOurServicesCategoriesService = async ( query, from, limit ) => {
   try {

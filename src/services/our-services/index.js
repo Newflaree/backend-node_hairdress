@@ -1,13 +1,13 @@
-const createProductService = require( './createProduct.service' );
-const deleteProductByIdService = require( './deleteProductById.service' );
-const getProductByIdService = require( './getProductById.service' );
-const getProductsService = require( './getProducts.service' );
-const updateProductByIdService = require( './updateProductById.service' );
+const createOurServiceService = require( './createOurService.service' );
+const deleteOurServiceByIdService = require( './deleteOurServiceById.service' );
+const getOurServiceByIdService = require( './getOurServiceById.service' );
+const getOurServicesService = require( './getOurServices.service' );
+const updateOurServiceByIdService = require( './updateOurServiceById.service' );
 
 module.exports = {
-  createProductService,
-  deleteProductByIdService,
-  getProductByIdService,
-  getProductsService,
-  updateProductByIdService
+  createOurServiceService,
+  deleteOurServiceByIdService,
+  getOurServiceByIdService,
+  getOurServicesService,
+  updateOurServiceByIdService
 }

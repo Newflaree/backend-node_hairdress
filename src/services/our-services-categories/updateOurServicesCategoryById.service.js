@@ -1,4 +1,5 @@
 // Models
+const { OurServicesCategory } = require( '../../models' );
 
 const updateOurServicesCategoryByIdService = async ( uid = '', id = '', data = {} ) => {
   try {

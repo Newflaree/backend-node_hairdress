@@ -1,4 +1,5 @@
 // Models
+const { OurService } = require( '../../models' );
 
 const getOurServicesService = async ( query = {}, from = 0, limit = 0 ) => {
   try {

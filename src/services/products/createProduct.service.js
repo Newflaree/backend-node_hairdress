@@ -1,7 +1,7 @@
-// Models
-const { Product } = require( '../../models' );
 // Helpers
 const { priceFormater, stockValidator } = require( '../../helpers/db/products' );
+// Models
+const { Product } = require( '../../models' );
 
 const createProductService = async ( uid = '', productData = {} ) => {
   const formatedData = {

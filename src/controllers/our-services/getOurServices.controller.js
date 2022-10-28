@@ -1,6 +1,6 @@
 const { request, response } = require( 'express' );
 // Services
-const { getProductsService } = require( '../../services/products' );
+const { getOurServicesService } = require( '../../services/products' );
 
 /*
   PATH: '/api/our-services'

@@ -1,5 +1,6 @@
-// Models
 // Helpers
+// Models
+const { OurService } = require( '../../models' );
 
 const createOurServiceService = async ( uid = '', ourSericeData = {} ) => {
   try {
