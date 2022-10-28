@@ -9,6 +9,7 @@ const {
   updateOurServicesCategoryById
 } = require( '../controllers/our-services-categories' );
 // Helpers
+const { ourServicesCategoryIdVatidation } = require( '../helpers/db/our-services-categories' );
 // Middlewares
 const {
   validateJWT,
@@ -35,18 +36,25 @@ router.get( '/', [
 
 router.get( '/:id', [
   validateJWT,
+  check( 'id', 'Invalid Mongo ID' ).isMongoId(),
+  check( 'id' ).custom( ourServicesCategoryIdVatidation ),
   validateFields
 ], getOurServicesCategoryById );
 
 router.put( '/:id', [
   validateJWT,
   validateRole,
+  check( 'id', 'Invalid Mongo ID' ).isMongoId(),
+  check( 'id' ).custom( ourServicesCategoryIdVatidation ),
+  check( 'name', 'El nombre para la categoría del servicio es obligatorio' ).not().isEmpty(),
   validateFields
 ], updateOurServicesCategoryById );
 
 router.delete( '/:id', [
   validateJWT,
   validateRole,
+  check( 'id', 'Invalid Mongo ID' ).isMongoId(),
+  check( 'id' ).custom( ourServicesCategoryIdVatidation ),
   validateFields
 ], deleteOurServicesCategoryById );
 

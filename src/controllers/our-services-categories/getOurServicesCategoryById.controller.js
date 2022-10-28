@@ -9,10 +9,11 @@ const getOurServicesCategoryById = async ( req = request, res = response ) => {
   const { id } = req.params;
 
   try {
+    const { ourServicesCategory } = await getOurServicesCategoryByIdService( id );
 
     res.json({
       ok: true,
-      msg: 'getOurServicesCategoryById'
+      ourServicesCategory
     });
 
   } catch ( err ) {
