@@ -11,10 +11,11 @@ const updateOurServicesCategoryById = async ( req = request, res = response ) =>
   const { _id, isActive, ...data } = req.body;
 
   try {
+    const { ourServicesCategoryUpdated } = await updateOurServicesCategoryByIdService( uid, id, data );
 
     res.json({
       ok: true,
-      msg: 'updateOurServicesCategoryById'
+      ourServicesCategoryUpdated
     });
 
   } catch ( err ) {
