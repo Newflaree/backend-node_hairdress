@@ -7,11 +7,13 @@ const { deleteOurServicesCategoryByIdService } = require( '../../services/our-se
 */
 const deleteOurServicesCategoryById = async ( req = request, res = response ) => {
   const { id } = req.params;
+
   try {
+    const { msg } = await deleteOurServicesCategoryByIdService( id );
 
     res.json({
       ok: true,
-      msg: 'deleteOurServicesCategoryById'
+      msg
     });
 
   } catch ( err ) {
