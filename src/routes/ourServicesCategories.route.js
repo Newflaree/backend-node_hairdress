@@ -24,6 +24,7 @@ const router = Router();
 router.post( '/', [
   validateJWT,
   validateRole,
+  check( 'name', 'El nombre para la categoría del servicio es obligatorio' ).not().isEmpty(),
   validateFields
 ], createOurServicesCategory );
 

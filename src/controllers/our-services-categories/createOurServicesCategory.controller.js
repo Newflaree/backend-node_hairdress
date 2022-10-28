@@ -7,13 +7,14 @@ const { createOurServicesCategoryService } = require( '../../services/our-servic
 */
 const createOurServicesCategory = async ( req = request, res = response ) => {
   const name = req.body.name;
-  const { _id } = req.user;
+  const { _id: uid } = req.user;
 
   try {
+    const { ourServicesCategoryCreated } = await createOurServicesCategoryService( name, uid );
 
     res.json({
       ok: true,
-      msg: 'createOurServicesCategory'
+      ourServicesCategoryCreated
     });
 
   } catch ( err ) {
