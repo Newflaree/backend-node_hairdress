@@ -8,13 +8,14 @@ const { updateOurServiceByIdService } = require( '../../services/our-services' )
 const updateOurServiceById = async ( req = request, res = response ) => {
   const { _id: uid } = req.user;
   const { id } = req.params;
-  const { _id, isActive, ...productData } = req.body;
+  const { _id, isActive, ...ourServiceData } = req.body;
 
   try {
+    const { ourServiceUpdated } = await updateOurServiceByIdService( uid, id, ourServiceData );
 
     res.json({
       ok: true,
-      msg: 'updateOurServiceById'
+      ourServiceUpdated
     });
 
   } catch ( err ) {

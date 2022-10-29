@@ -48,6 +48,13 @@ router.get( '/:id', [
 router.put( '/:id', [
   validateJWT,
   validateRole,
+  check( 'id', 'Invalid Mongo ID' ).isMongoId(),
+  check( 'id' ).custom( ourServiceIdVatidation ),
+  check( 'name', 'Indique el nombre del servicio' ).not().isEmpty(),
+  check( 'duration', 'Indique la duración del servicio' ).not().isEmpty(),
+  check( 'price', 'Indique el precio del servicio' ).not().isEmpty(),
+  check( 'category', 'Indique la categoría del servicio' ).isMongoId(),
+  check( 'category' ).custom( ourServicesCategoryIdVatidation ),
   validateFields
 ], updateOurServiceById );
 
