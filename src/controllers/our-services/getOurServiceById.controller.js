@@ -9,10 +9,11 @@ const getOurServiceById = async ( req = request, res = response ) => {
   const { id } = req.params;
 
   try {
+    const { ourService } = await getOurServiceByIdService( id );
 
     res.json({
       ok: true,
-      msg: 'getOurServiceById'
+      ourService
     });
 
   } catch ( err ) {

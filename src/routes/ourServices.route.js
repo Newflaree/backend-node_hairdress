@@ -9,7 +9,7 @@ const {
   updateOurServiceById
 } = require( '../controllers/our-services' );
 // Helpers
-const { ourServicesCategoryIdVatidation } = require( '../helpers/db/our-services-categories' );
+const { ourServiceIdVatidation, ourServicesCategoryIdVatidation } = require( '../helpers/db' );
 // Middlewares
 const {
   validateJWT,
@@ -40,6 +40,8 @@ router.get( '/', [
 
 router.get( '/:id', [
   validateJWT,
+  check( 'id', 'Invalid Mongo ID' ).isMongoId(),
+  check( 'id' ).custom( ourServiceIdVatidation ),
   validateFields
 ], getOurServiceById );
 

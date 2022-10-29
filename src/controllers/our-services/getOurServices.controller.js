@@ -30,4 +30,3 @@ const getOurServices = async ( req = request, res = response ) => {
 }
 
 module.exports = getOurServices;
-
