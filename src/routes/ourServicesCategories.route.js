@@ -29,13 +29,9 @@ router.post( '/', [
   validateFields
 ], createOurServicesCategory );
 
-router.get( '/', [
-  validateJWT,
-  validateFields
-], getOurServicesCategories );
+router.get( '/', getOurServicesCategories );
 
 router.get( '/:id', [
-  validateJWT,
   check( 'id', 'Invalid Mongo ID' ).isMongoId(),
   check( 'id' ).custom( ourServicesCategoryIdVatidation ),
   validateFields

@@ -33,13 +33,9 @@ router.post( '/', [
   validateFields
 ], createOurService );
 
-router.get( '/', [
-  validateJWT,
-  validateFields
-], getOurServices );
+router.get( '/', getOurServices );
 
 router.get( '/:id', [
-  validateJWT,
   check( 'id', 'Invalid Mongo ID' ).isMongoId(),
   check( 'id' ).custom( ourServiceIdVatidation ),
   validateFields
