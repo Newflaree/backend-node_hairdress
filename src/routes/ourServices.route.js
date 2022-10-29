@@ -61,6 +61,8 @@ router.put( '/:id', [
 router.delete( '/:id', [
   validateJWT,
   validateRole,
+  check( 'id', 'Invalid Mongo ID' ).isMongoId(),
+  check( 'id' ).custom( ourServiceIdVatidation ),
   validateFields
 ], deleteOurServiceById );
 

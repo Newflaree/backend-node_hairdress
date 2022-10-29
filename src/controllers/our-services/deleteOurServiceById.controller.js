@@ -9,10 +9,11 @@ const deleteOurServiceById = async ( req = request, res = response ) => {
   const { id } = req.params;
 
   try {
+    const { msg } = await deleteOurServiceByIdService( id );
 
     res.json({
       ok: true,
-      msg: 'deleteOurServiceById'
+      msg
     });
 
   } catch ( err ) {
