@@ -1,5 +1,5 @@
 // Helpers
-const { stockValidator, priceFormater } = require( '../../helpers/db/products' );
+const { stockValidator, priceFormater } = require( '../../helpers/db' );
 // Models
 const { Product } = require( '../../models' );
 
@@ -13,7 +13,9 @@ const updateProductByIdService = async ( uid = '', id = '', productData = {} ) =
 
   try {
     const productUpdated = await Product.findByIdAndUpdate( id, formatedData, { new: true } )
-    .populate( 'user', 'name' );
+    .populate( 'user', 'name' )
+    .populate( 'category', 'name' )
+    .populate( 'brand', 'name' )
 
     return {
       productUpdated

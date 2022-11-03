@@ -3,7 +3,10 @@ const { Product } = require( '../../models' );
 
 const getProductByIdService = async ( id = '' ) => {
   try {
-    const product = await Product.findById( id );
+    const product = await Product.findById( id )
+      .populate( 'user', 'name' )
+      .populate( 'category', 'name' )
+      .populate( 'brand', 'name' );
 
     return {
       product

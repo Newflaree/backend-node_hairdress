@@ -40,13 +40,9 @@ router.post( '/', [
   validateFields
 ], createProduct );
 
-router.get( '/', [
-  validateJWT,
-  validateFields
-], getProducts );
+router.get( '/', getProducts );
 
 router.get( '/:id', [
-  validateJWT,
   check( 'id', 'Invalid Mongo ID' ).isMongoId(),
   check( 'id' ). custom( productIdValidation ),
   validateFields
