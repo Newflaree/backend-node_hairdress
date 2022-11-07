@@ -1,4 +1,5 @@
 const { request, response } = require( 'express' );
+const {getHomeProductsService} = require('../../../services/home-maintenance/home-products');
 // Services
 
 /*
@@ -6,10 +7,12 @@ const { request, response } = require( 'express' );
 */
 const getHomeProducts = async ( req = request, res = response ) => {
   try {
+    const { total, homeProducts } = await getHomeProductsService();
 
     res.json({
       ok: true,
-      msg: 'getHomeProducts'
+      total,
+      homeProducts
     });
 
   } catch ( err ) {
