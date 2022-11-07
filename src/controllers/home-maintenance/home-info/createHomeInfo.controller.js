@@ -4,16 +4,16 @@ const { request, response } = require( 'express' );
 /*
   PATH: '/api/home-info/:id'
 */
-const getHomeInfo = async ( req = request, res = response ) => {
+const createHomeInfo = async ( req = request, res = response ) => {
   try {
 
     res.json({
       ok: true,
-      msg: 'getHomeInfo'
+      msg: 'createHomeInfo'
     });
 
   } catch ( err ) {
-    console.log( `${ '[CONTROLLER.GET-HOME-INFO]'.red }: Error Detail - ${ err }` );
+    console.log( `${ '[CONTROLLER.CREATE-HOME-INFO]'.red }: Error Detail - ${ err }` );
 
     res.status( 500 ).json({
       ok: false,
@@ -22,4 +22,4 @@ const getHomeInfo = async ( req = request, res = response ) => {
   }
 }
 
-module.exports = getHomeInfo;
+module.exports = createHomeInfo;

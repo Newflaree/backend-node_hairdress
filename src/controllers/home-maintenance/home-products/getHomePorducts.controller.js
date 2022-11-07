@@ -2,18 +2,18 @@ const { request, response } = require( 'express' );
 // Services
 
 /*
-  PATH: '/api/home-info/:id'
+  PATH: '/api/home-products'
 */
-const getHomeInfo = async ( req = request, res = response ) => {
+const getHomeProducts = async ( req = request, res = response ) => {
   try {
 
     res.json({
       ok: true,
-      msg: 'getHomeInfo'
+      msg: 'getHomeProducts'
     });
 
   } catch ( err ) {
-    console.log( `${ '[CONTROLLER.GET-HOME-INFO]'.red }: Error Detail - ${ err }` );
+    console.log( `${ '[CONTROLLER.GET-HOME-PRODUCTS]'.red }: Error Detail - ${ err }` );
 
     res.status( 500 ).json({
       ok: false,
@@ -22,4 +22,4 @@ const getHomeInfo = async ( req = request, res = response ) => {
   }
 }
 
-module.exports = getHomeInfo;
+module.exports = getHomeProducts;

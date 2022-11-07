@@ -7,6 +7,11 @@ const { request, response } = require( 'express' );
 const updateHomeInfo = async ( req = request, res = response ) => {
   try {
 
+    res.json({
+      ok: true,
+      msg: 'updateHomeInfo'
+    });
+
   } catch ( err ) {
     console.log( `${ '[CONTROLLER.UPDATE-HOME-INFO]'.red }: Error Detail - ${ err }` );
 
