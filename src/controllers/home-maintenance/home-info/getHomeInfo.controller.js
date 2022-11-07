@@ -1,15 +1,17 @@
 const { request, response } = require( 'express' );
 // Services
+const { getHomeInfoService } = require( '../../../services/home-maintenance/home-info' );
 
 /*
-  PATH: '/api/home-info/:id'
+  PATH: '/api/home-info'
 */
 const getHomeInfo = async ( req = request, res = response ) => {
   try {
+    const { currentHomeInfo } = await getHomeInfoService();
 
     res.json({
       ok: true,
-      msg: 'getHomeInfo'
+      currentHomeInfo
     });
 
   } catch ( err ) {
