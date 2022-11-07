@@ -1,6 +1,6 @@
 const { Schema, model } = require( 'mongoose' );
 
-const ProductCategorySchema = Schema({
+const HomeInfoSchema = Schema({
   mission: {
     type: String,
     required: [ true, 'Mission is required' ],
@@ -12,16 +12,16 @@ const ProductCategorySchema = Schema({
     default: ''
   },
   about: {
-    type: Boolean,
+    type: String,
     required: [ true, 'About is required' ],
     default: ''
   }
 });
 
-ProductCategorySchema.methods.toJSON = function() {
-  const { __v, _id, ...productCategory } = this.toObject();
-  productCategory.id = _id;
-  return productCategory;
+HomeInfoSchema.methods.toJSON = function() {
+  const { __v, _id, ...homeInfo } = this.toObject();
+  homeInfo.id = _id;
+  return homeInfo;
 }
 
-module.exports = model( 'ProductCategory', ProductCategorySchema );
+module.exports = model( 'HomeInfo', HomeInfoSchema );
