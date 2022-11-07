@@ -1,9 +1,5 @@
-const deleteHomeProductById = require( './deleteHomeProductById.controller' );
-const getHomeProducts = require( './getHomePorducts.controller' );
-const setHomeProduct = require( './setHomeProduct.controller' );
+const setHomeProductService = require( './setHomeProduct.service' );
 
 module.exports = {
-  setHomeProduct,
-  getHomeProducts,
-  deleteHomeProductById
+  setHomeProductService
 }

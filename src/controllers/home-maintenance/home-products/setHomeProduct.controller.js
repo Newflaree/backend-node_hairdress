@@ -1,15 +1,20 @@
 const { request, response } = require( 'express' );
 // Services
+const { setHomeProductService } = require( '../../../services/home-maintenance/home-products' );
 
 /*
   PATH: '/api/home-products/:id'
 */
 const setHomeProduct = async ( req = request, res = response ) => {
-  try {
+  const { id } = req.params;
 
-    res.json({
-      ok: true,
-      msg: 'setHomeProduct'
+  try {
+    const { statusCode, ok, msg, newHomeProduct } = await setHomeProductService( id );
+
+    res.status( statusCode ).json({
+      ok,
+      msg,
+      newHomeProduct
     });
 
   } catch ( err ) {

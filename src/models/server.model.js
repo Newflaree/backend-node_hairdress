@@ -11,7 +11,8 @@ const {
   productBrandsRouter,
   productCategoryRouter,
   productsRouter,
-  usersRouter
+  usersRouter,
+  homeProductsRouter
 } = require( '../routes' );
 
 class Server {
@@ -21,6 +22,7 @@ class Server {
     this.apiPaths = {
       auth:                  '/api/auth',
       homeInfo:              '/api/home-info',
+      homeProducts:          '/api/home-products',
       ourServices:           '/api/our-services',
       outServicesCategories: '/api/our-services-categories',
       productBrands:         '/api/product-brands',
@@ -47,6 +49,7 @@ class Server {
   routes() {
     this.app.use( this.apiPaths.auth, authRouter );
     this.app.use( this.apiPaths.homeInfo, homeInfoRouter );
+    this.app.use( this.apiPaths.homeProducts, homeProductsRouter );
     this.app.use( this.apiPaths.ourServices, ourServicesRouter );
     this.app.use( this.apiPaths.outServicesCategories, ourServicesCategoriesRouter );
     this.app.use( this.apiPaths.productBrands, productBrandsRouter );
