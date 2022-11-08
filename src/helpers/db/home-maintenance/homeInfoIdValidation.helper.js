@@ -11,4 +11,3 @@ const homeInfoIdValidation = async ( id = '' ) => {
 }
 
 module.exports = homeInfoIdValidation;
-

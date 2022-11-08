@@ -1,15 +1,18 @@
 const { request, response } = require( 'express' );
+const {deleteHomeProductByIdService} = require('../../../services/home-maintenance/home-products');
 // Services
 
 /*
   PATH: '/api/home-products/:id'
 */
 const deleteHomeProductById = async ( req = request, res = response ) => {
+  const { id } = req.params;
   try {
+    const { msg } = await deleteHomeProductByIdService( id );
 
     res.json({
       ok: true,
-      msg: 'deleteHomeProductById'
+      msg
     });
 
   } catch ( err ) {

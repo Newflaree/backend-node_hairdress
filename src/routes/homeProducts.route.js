@@ -7,6 +7,7 @@ const {
   deleteHomeProductById
 } = require('../controllers/home-maintenance/home-products');
 // Helpers
+const { homeProductIdValidation } = require('../helpers/db/home-maintenance');
 const { productIdValidation } = require('../helpers/db/products');
 // Middlewares
 const {
@@ -33,6 +34,8 @@ router.get( '/', getHomeProducts );
 router.delete( '/:id', [
   validateJWT,
   validateRole,
+  check( 'id', 'Invalid Mongo ID' ).isMongoId(),
+  check( 'id' ).custom( homeProductIdValidation ),
   validateFields
 ], deleteHomeProductById );
 
