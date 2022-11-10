@@ -8,6 +8,8 @@ const getProductsService = async ( query = {}, from = 0, limit = 0 ) => {
       Product.find( query )
         .skip( Number( from ) )
         .limit( Number( limit ) )
+        .populate( 'brand', 'name' )
+        .populate( 'category', 'name' )
     ]);
 
     return {

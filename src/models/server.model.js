@@ -6,13 +6,14 @@ const dbConnection = require( '../db/db.config');
 const {
   authRouter,
   homeInfoRouter,
+  homeProductsRouter,
+  homeSlideRouter,
   ourServicesCategoriesRouter,
   ourServicesRouter,
   productBrandsRouter,
   productCategoryRouter,
   productsRouter,
-  usersRouter,
-  homeProductsRouter
+  usersRouter
 } = require( '../routes' );
 
 class Server {
@@ -23,6 +24,7 @@ class Server {
       auth:                  '/api/auth',
       homeInfo:              '/api/home-info',
       homeProducts:          '/api/home-products',
+      homeSlide:             '/api/home-slide',
       ourServices:           '/api/our-services',
       outServicesCategories: '/api/our-services-categories',
       productBrands:         '/api/product-brands',
@@ -50,6 +52,7 @@ class Server {
     this.app.use( this.apiPaths.auth, authRouter );
     this.app.use( this.apiPaths.homeInfo, homeInfoRouter );
     this.app.use( this.apiPaths.homeProducts, homeProductsRouter );
+    this.app.use( this.apiPaths.homeSlide, homeSlideRouter );
     this.app.use( this.apiPaths.ourServices, ourServicesRouter );
     this.app.use( this.apiPaths.outServicesCategories, ourServicesCategoriesRouter );
     this.app.use( this.apiPaths.productBrands, productBrandsRouter );
