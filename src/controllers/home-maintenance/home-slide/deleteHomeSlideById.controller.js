@@ -6,11 +6,13 @@ const { deleteHomeSlideByIdService } = require('../../../services/home-maintenan
   PATH: '/api/home-slide/:id'
 */
 const deleteHomeSlideById = async ( req = request, res = response ) => {
+  const { id } = req.params;
   try {
+    const { msg } = await deleteHomeSlideByIdService( id );
 
     res.json({
       ok: true,
-      msg: 'deleteHomeSlideById'
+      msg
     });
 
   } catch ( err ) {
