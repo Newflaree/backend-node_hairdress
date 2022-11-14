@@ -7,16 +7,6 @@ const getHomeSlideService = async () => {
   }
 
   try {
-    const count = await HomeSlide.countDocuments( condition );
-
-    if ( count > 4 ) {
-      return {
-        statusCode: 400,
-        ok: false,
-        msg: 'No se pueden agregar más portadas al inicio'
-      }
-    }
-
     const [ total, homeSlides ] = await Promise.all([
       HomeSlide.countDocuments( condition ),
       HomeSlide.find( condition )

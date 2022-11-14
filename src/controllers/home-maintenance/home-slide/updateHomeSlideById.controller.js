@@ -6,11 +6,22 @@ const { updateHomeSlideByIdService } = require('../../../services/home-maintenan
   PATH: '/api/home-slide/:id'
 */
 const updateHomeSlideById = async ( req = request, res = response ) => {
+  const { id } = req.params;
+  const { img, title, desc, url } = req.body;
+
+  const homeSlideData = {
+    img,
+    title,
+    desc,
+    url
+  };
+
   try {
+    const { homeSlideUpdated } = await updateHomeSlideByIdService( id, homeSlideData );
 
     res.json({
       ok: true,
-      msg: 'updateHomeSlideById'
+      homeSlideUpdated
     });
 
   } catch ( err ) {
