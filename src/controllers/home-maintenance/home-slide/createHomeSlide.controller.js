@@ -6,11 +6,14 @@ const { createHomeSlideService } = require('../../../services/home-maintenance/h
   PATH: '/api/home-slide'
 */
 const createHomeSlide = async ( req = request, res = response ) => {
+  const { img, title, desc, url } = req.body;
+
   try {
+    const { newHomeSlide } = await createHomeSlideService( img, title, desc, url );
 
     res.json({
       ok: true,
-      msg: 'createHomeSlide'
+      newHomeSlide
     });
 
   } catch ( err ) {

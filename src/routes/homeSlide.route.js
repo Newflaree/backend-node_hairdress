@@ -23,6 +23,10 @@ const router = Router();
 router.post( '/', [
   validateJWT,
   validateRole,
+  check( 'img', 'La imágen de la portada es obligatoria' ).not().isEmpty(),
+  check( 'title', 'El título de la portada es obligatorio' ).not().isEmpty(),
+  check( 'desc', 'La descripción de la portada es obligatoria' ).not().isEmpty(),
+  check( 'url', 'El enlace de la portada es obligatorio' ).not().isEmpty(),
   validateFields
 ], createHomeSlide );
 

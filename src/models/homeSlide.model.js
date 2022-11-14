@@ -9,7 +9,7 @@ const HomeSlideSchema = Schema({
     type: String,
     required: [ true, 'Title is mandatory' ]
   },
-  dec: {
+  desc: {
     type: String,
     required: [ true, 'Description is mandatory' ]
   },

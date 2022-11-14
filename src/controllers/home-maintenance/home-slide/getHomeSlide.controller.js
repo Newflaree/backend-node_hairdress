@@ -7,10 +7,12 @@ const { getHomeSlideService } = require('../../../services/home-maintenance/home
 */
 const getHomeSlide = async ( req = request, res = response ) => {
   try {
+    const { total, homeSlides } = await getHomeSlideService();
 
     res.json({
       ok: true,
-      msg: 'getHomeSlide'
+      total,
+      homeSlides
     });
 
   } catch ( err ) {
