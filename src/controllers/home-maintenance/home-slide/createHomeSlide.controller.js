@@ -9,10 +9,11 @@ const createHomeSlide = async ( req = request, res = response ) => {
   const { img, title, desc, url } = req.body;
 
   try {
-    const { newHomeSlide } = await createHomeSlideService( img, title, desc, url );
+    const { statusCode, ok, msg, newHomeSlide } = await createHomeSlideService( img, title, desc, url );
 
-    res.json({
-      ok: true,
+    res.status( statusCode ).json({
+      ok,
+      msg,
       newHomeSlide
     });
 

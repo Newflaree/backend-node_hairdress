@@ -17,7 +17,7 @@ const HomeSlideSchema = Schema({
     type: String,
     required: [ true, 'Url is mandatory' ]
   },
-  onShowHome: {
+  showOnHome: {
     type: Boolean,
     default: true
   }
