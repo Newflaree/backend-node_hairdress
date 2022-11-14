@@ -1,3 +1,4 @@
+// Models
 const { User } = require( '../../../models' );
 
 const emailValidation = async ( email = '' ) => {

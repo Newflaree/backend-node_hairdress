@@ -1,3 +1,4 @@
+// Models
 const { ProductBrand } = require( '../../../models' );
 
 const productBrandIdValidation = async ( id = '' ) => {

@@ -1,3 +1,4 @@
+// Models
 const { HomeInfo } = require( '../../../models' );
 
 const homeInfoIdValidation = async ( id = '' ) => {
