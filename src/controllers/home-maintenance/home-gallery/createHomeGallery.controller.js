@@ -6,11 +6,15 @@ const { createHomeGalleryService } = require( '../../../services/home-maintenanc
   PATH: '/api/home-gallery/'
 */
 const createHomeGallery = async ( req = request, res = response ) => {
-  try {
+  const { img } = req.body;
 
-    res.json({
-      ok: true,
-      msg: 'createHomeGallery'
+  try {
+    const { statusCode, ok, msg, newHomeGalleryItem } = await createHomeGalleryService( img );
+
+    res.status( statusCode ).json({
+      ok,
+      msg,
+      newHomeGalleryItem
     });
 
   } catch ( err ) {

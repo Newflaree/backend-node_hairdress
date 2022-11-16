@@ -23,6 +23,7 @@ const router = Router();
 router.post( '/', [
   validateJWT,
   validateRole,
+  check( 'img', 'La imágen es obligatoria' ).not().isEmpty(),
   validateFields
 ], createHomeGallery );
 
