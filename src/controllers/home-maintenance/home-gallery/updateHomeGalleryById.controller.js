@@ -6,11 +6,15 @@ const { updateHomeGalleryByIdService } = require( '../../../services/home-mainte
   PATH: '/api/home-gallery/:id'
 */
 const updateHomeGalleryById = async ( req = request, res = response ) => {
+  const { id } = req.params;
+  const { img } = req.body;
+
   try {
+    const { homeGalleryUpdated } = await updateHomeGalleryByIdService( id, img );
 
     res.json({
       ok: true,
-      msg: 'updateHomeGalleryById'
+      homeGalleryUpdated
     });
 
   } catch ( err ) {

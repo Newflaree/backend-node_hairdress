@@ -8,6 +8,7 @@ const {
   deleteHomeGalleryById
 } = require('../controllers/home-maintenance/home-gallery');
 // Helpers
+const { homeGalleryIdValidation } = require( '../helpers/db/home-maintenance' );
 // Middlewares
 const {
   validateFields,
@@ -32,12 +33,17 @@ router.get( '/', getHomeGallery );
 router.put( '/:id', [
   validateJWT,
   validateRole,
+  check( 'id', 'Invalid Mongo ID' ).isMongoId(),
+  check( 'id' ).custom( homeGalleryIdValidation ),
+  check( 'img', 'La imágen es obligatoria' ).not().isEmpty(),
   validateFields
 ], updateHomeGalleryById );
 
 router.delete( '/:id', [
   validateJWT,
   validateRole,
+  check( 'id', 'Invalid Mongo ID' ).isMongoId(),
+  check( 'id' ).custom( homeGalleryIdValidation ),
   validateFields
 ], deleteHomeGalleryById );
 
