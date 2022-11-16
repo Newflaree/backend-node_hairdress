@@ -6,11 +6,14 @@ const { deleteHomeGalleryByIdService } = require( '../../../services/home-mainte
   PATH: '/api/home-gallery/:id'
 */
 const deleteHomeGalleryById = async ( req = request, res = response ) => {
+  const { id } = req.params;
+
   try {
+    const { msg } = await deleteHomeGalleryByIdService( id );
 
     res.json({
       ok: true,
-      msg: 'deleteHomeGalleryById'
+      msg
     });
 
   } catch ( err ) {
