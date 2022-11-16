@@ -1,3 +1,4 @@
+const HomeGallery = require( './homeGallery.model' );
 const HomeInfo = require( './homeInfo.model' );
 const HomeProduct = require( './homeProduct.model' );
 const HomeSlide = require( './homeSlide.model' );
@@ -9,6 +10,7 @@ const Product = require( './product.model' );
 const User = require( './user.model' );
 
 module.exports = {
+  HomeGallery,
   HomeInfo,
   HomeProduct,
   HomeSlide,

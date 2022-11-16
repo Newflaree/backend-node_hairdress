@@ -1,11 +1,11 @@
-const createHomeGallery = require( './createHomeGallery.controller' );
-const deleteHomeGalleryById = require( './deleteHomeGalleryById.controller' );
-const getHomeGallery = require( './getHomeGallery.controller' );
-const updateHomeGalleryById = require( './updateHomeGalleryById.controller' );
+const createHomeGalleryService = require( './createHomeGallery.service' );
+const deleteHomeGalleryByIdService = require( './deleteHomeGalleryById.service' );
+const getHomeGalleryService = require( './getHomeGallery.service' );
+const updateHomeGalleryByIdService = require( './updateHomeGalleryById.service' );
 
 module.exports = {
-  createHomeGallery,
-  deleteHomeGalleryById,
-  getHomeGallery,
-  updateHomeGalleryById
+  createHomeGalleryService,
+  getHomeGalleryService,
+  updateHomeGalleryByIdService,
+  deleteHomeGalleryByIdService
 }

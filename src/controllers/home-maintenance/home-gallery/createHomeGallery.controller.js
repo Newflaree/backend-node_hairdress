@@ -1,5 +1,6 @@
 const { request, response } = require( 'express' );
 // Services
+const { createHomeGalleryService } = require( '../../../services/home-maintenance/home-gallery' );
 
 /*
   PATH: '/api/home-gallery/'

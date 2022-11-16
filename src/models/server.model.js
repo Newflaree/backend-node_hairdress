@@ -5,6 +5,7 @@ const dbConnection = require( '../db/db.config');
 // Routes
 const {
   authRouter,
+  homeGalleryRouter,
   homeInfoRouter,
   homeProductsRouter,
   homeSlideRouter,
@@ -22,6 +23,7 @@ class Server {
     this.port = process.env.PORT;
     this.apiPaths = {
       auth:                  '/api/auth',
+      homeGallery:           '/api/home-gallery',
       homeInfo:              '/api/home-info',
       homeProducts:          '/api/home-products',
       homeSlide:             '/api/home-slide',
@@ -50,6 +52,7 @@ class Server {
 
   routes() {
     this.app.use( this.apiPaths.auth, authRouter );
+    this.app.use( this.apiPaths.homeGallery, homeGalleryRouter );
     this.app.use( this.apiPaths.homeInfo, homeInfoRouter );
     this.app.use( this.apiPaths.homeProducts, homeProductsRouter );
     this.app.use( this.apiPaths.homeSlide, homeSlideRouter );

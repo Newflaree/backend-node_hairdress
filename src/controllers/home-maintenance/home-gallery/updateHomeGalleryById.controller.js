@@ -1,5 +1,6 @@
 const { request, response } = require( 'express' );
 // Services
+const { updateHomeGalleryByIdService } = require( '../../../services/home-maintenance/home-gallery' );
 
 /*
   PATH: '/api/home-gallery/:id'
