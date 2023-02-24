@@ -2,9 +2,9 @@
 const { Product } = require( '../../models' );
 
 const allowedCollections = ( collection = '', collections = [] ) => {
-  const included = collections.included( collection );
+  const isIncluded = collections.included( collection );
 
-  if ( !included ) {
+  if ( !isIncluded ) {
     throw new Error( `La colección ${ collection } no es permitida` );
   }
 

@@ -3,6 +3,7 @@ const { request, response } = require( 'express' );
 const {renewTokenService} = require( '../../services/auth' );
 
 /*
+  GET 
   PATH: '/api/auth/login'
 */
 const renewToken = async ( req = request, res = response ) => {

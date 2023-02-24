@@ -1,6 +1,7 @@
 const bcrypt = require( 'bcryptjs' );
 // Helpers
 const { generateJWT } = require( '../../helpers/jwt' );
+const { sendConfirmationEmail } = require('../../helpers/mail');
 const { getMenuFront } = require( '../../helpers/menu-front' );
 // Models
 const { User } = require( '../../models' );
@@ -19,8 +20,12 @@ const createUserService = async ( name = '', email = '', password = '' ) => {
     // Generate JWT
     const token = await generateJWT( user.id );
 
-    // TODO: Get manu for frontend
+    // Get manu for frontend
     const menu = getMenuFront( user.role );
+
+    // Send confirmation email
+    // TODO: Fix sending confirmation email
+    // await sendConfirmationEmail( email, name );
 
     return {
       user,

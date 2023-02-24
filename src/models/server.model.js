@@ -1,7 +1,7 @@
 const express = require( 'express' );
 const cors = require( 'cors' );
 // Database Config
-const dbConnection = require( '../db/db.config');
+const dbConnection = require( '../config/db/db.config');
 // Routes
 const {
   authRouter,
@@ -51,17 +51,17 @@ class Server {
   }
 
   routes() {
-    this.app.use( this.apiPaths.auth, authRouter );
-    this.app.use( this.apiPaths.homeGallery, homeGalleryRouter );
-    this.app.use( this.apiPaths.homeInfo, homeInfoRouter );
-    this.app.use( this.apiPaths.homeProducts, homeProductsRouter );
-    this.app.use( this.apiPaths.homeSlide, homeSlideRouter );
-    this.app.use( this.apiPaths.ourServices, ourServicesRouter );
+    this.app.use( this.apiPaths.auth,                  authRouter );
+    this.app.use( this.apiPaths.homeGallery,           homeGalleryRouter );
+    this.app.use( this.apiPaths.homeInfo,              homeInfoRouter );
+    this.app.use( this.apiPaths.homeProducts,          homeProductsRouter );
+    this.app.use( this.apiPaths.homeSlide,             homeSlideRouter );
+    this.app.use( this.apiPaths.ourServices,           ourServicesRouter );
     this.app.use( this.apiPaths.outServicesCategories, ourServicesCategoriesRouter );
-    this.app.use( this.apiPaths.productBrands, productBrandsRouter );
-    this.app.use( this.apiPaths.productCategories, productCategoryRouter );
-    this.app.use( this.apiPaths.products, productsRouter );
-    this.app.use( this.apiPaths.users, usersRouter );
+    this.app.use( this.apiPaths.productBrands,         productBrandsRouter );
+    this.app.use( this.apiPaths.productCategories,     productCategoryRouter );
+    this.app.use( this.apiPaths.products,              productsRouter );
+    this.app.use( this.apiPaths.users,                 usersRouter );
   }
 
   listen() {

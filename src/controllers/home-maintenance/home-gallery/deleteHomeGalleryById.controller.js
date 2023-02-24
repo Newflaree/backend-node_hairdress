@@ -3,6 +3,9 @@ const { request, response } = require( 'express' );
 const { deleteHomeGalleryByIdService } = require( '../../../services/home-maintenance/home-gallery' );
 
 /*
+  DELETE
+  SHOULD BE AUTH: TRUE
+  SHOULD BE ADMIN: TRUE
   PATH: '/api/home-gallery/:id'
 */
 const deleteHomeGalleryById = async ( req = request, res = response ) => {

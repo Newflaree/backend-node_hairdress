@@ -3,6 +3,7 @@ const { request, response } = require( 'express' );
 const { createHomeGalleryService } = require( '../../../services/home-maintenance/home-gallery' );
 
 /*
+  POST
   PATH: '/api/home-gallery/'
 */
 const createHomeGallery = async ( req = request, res = response ) => {

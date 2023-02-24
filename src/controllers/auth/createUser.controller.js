@@ -3,6 +3,7 @@ const { request, response } = require( 'express' );
 const { createUserService } = require( '../../services/auth' );
 
 /*
+  POST
   PATH: '/api/auth/register'
 */
 const createUser = async ( req = request, res = response ) => {
